@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "971c75f4-a945-4090-a4d9-f60d2b40f956",
+		"name": "Express v5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36198685"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "asyncError",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/test/asyncErrorDemo",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"test",
+								"asyncErrorDemo"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "asyncError",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}/test/asyncErrorDemo",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"test",
+										"asyncErrorDemo"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Oct 2024 18:43:03 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"28-amRL6vJkaaHQkO7eoXzdeo+cF9Y\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "bom1::iad1::dbj6s-1729968183408-8fc3d3e06854"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"TEST ERROR\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Test Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/test",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"test"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Health",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base}}/test",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"test"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Age",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "public, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Oct 2024 18:44:17 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"2d-fsxLoIUf7sCgkq/QVId4G4olNvs\""
+								},
+								{
+									"key": "Server",
+									"value": "Vercel"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000; includeSubDomains; preload"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Vercel-Cache",
+									"value": "MISS"
+								},
+								{
+									"key": "X-Vercel-Id",
+									"value": "bom1::iad1::d6r24-1729968257643-f38ef4a5985c"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"TEST ROUTES 📍\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ROOT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base}}",
+					"host": [
+						"{{base}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ROOT",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}",
+							"host": [
+								"{{base}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Age",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Content-Length",
+							"value": "51"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 26 Oct 2024 18:45:07 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"33-EXpqFNa+pUDNTrKw0PxuNtdWnJA\""
+						},
+						{
+							"key": "Server",
+							"value": "Vercel"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Vercel-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Vercel-Id",
+							"value": "bom1::iad1::9g9r2-1729968307502-e2b13587e1ed"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"SERVER Pinging... 📍\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "https://express-v5.vercel.app",
+			"type": "string"
+		}
+	]
+}
