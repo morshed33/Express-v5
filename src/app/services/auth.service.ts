@@ -1,5 +1,4 @@
 /* eslint-disable indent */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { APP_ORIGIN } from "../../constants/env"
 import {

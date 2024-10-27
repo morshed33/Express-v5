@@ -17,7 +17,7 @@ export const registerHandler = async (req: Request, res: Response) => {
   
   setAuthCookies({ res, accessToken, refreshToken })
     .status(CREATED)
-    .json({ success: true, user });
+    .json({ success: true, message: "User registered successfully", data : user });
 };
 
 export const loginHandler = async (req: Request, res: Response) => {

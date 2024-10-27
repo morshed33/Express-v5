@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const enum VerificationCodeType {
   EmailVerification = "email_verification",
   PasswordReset = "password_reset",

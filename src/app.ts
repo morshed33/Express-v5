@@ -6,13 +6,16 @@ import testRoutes from "./app/routes/test.routes";
 import { NOT_FOUND } from "./constants/http";
 import authRoutes from "./app/routes/auth.routes";
 import cookieParser from "cookie-parser";
+import swaggerUi from "swagger-ui-express";
+import swaggerJsDoc from "swagger-jsdoc";
+import { swaggerOptions } from "./lib/swaggerDocs";
 
 const app: Application = express();
 
 app.use(
   cors({
     origin: "*",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
 );
 app.use(express.urlencoded({ extended: true }));
@@ -20,6 +23,11 @@ app.use(express.json({ limit: "16kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 app.use(morgan("dev"));
+
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 
 // PING
 app.get("/", async (req: Request, res: Response) => {
