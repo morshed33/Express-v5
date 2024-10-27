@@ -31,8 +31,8 @@ import {
 import SessionModel from "../models/session.model"
 import UserModel from "../models/user.model"
 import VerificationCodeModel from "../models/verificationCode.model"
-import { sendMail } from "../../utils/sendMail"
 import AppErrorCode from "../../constants/appErrorCode"
+import sendMail from "../../utils/sendMail"
 
 interface CreateAccountParams {
     email: string
@@ -58,11 +58,14 @@ export const createAccount = async (data: CreateAccountParams) => {
 
     const url = `${APP_ORIGIN}/email/verify/${verificationCode._id}`
 
-    const { error } = await sendMail({
-        to: user.email,
-        ...getVerifyEmailTemplate(url),
-    })
-    if (error) console.error(error)
+    console.log(url, "url");
+
+
+await sendMail({
+    to: user.email,
+    ...getVerifyEmailTemplate(url),
+})
+
 
     const session = await SessionModel.create({
         userId,
@@ -216,19 +219,13 @@ export const sendPasswordResetEmail = async (email: string) => {
             verificationCode._id
         }&exp=${expiresAt.getTime()}`
 
-        const { data, error } = await sendMail({
+     await sendMail({
             to: email,
             ...getPasswordResetTemplate(url),
         })
 
-        appAssert(
-            data?.id,
-            INTERNAL_SERVER_ERROR,
-            `${error?.name} - ${error?.message}`,
-        )
         return {
             url,
-            emailId: data.id,
         }
 
 }

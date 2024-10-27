@@ -1,25 +1,32 @@
-
-import { EMAIL_SENDER, NODE_ENV } from "../constants/env";
-import resend from "../lib/resend";
-
-interface Params {
+import nodemailer, { Transporter } from "nodemailer";
+import { SMTP_HOST, SMTP_PASSWORD, SMTP_PORT, SMTP_SERVICE, SMTP_USER } from "../constants/env";
+interface EmailOptions {
   to: string;
   subject: string;
-  text: string;
   html: string;
 }
 
-const getFromEmail = () =>
-  NODE_ENV === "development" ? "onboarding@resend.dev" : EMAIL_SENDER;
-
-const getToEmail = (to: string) =>
-  NODE_ENV === "development" ? "delivered@resend.dev" : to;
-
-export const sendMail = async ({ to, subject, text, html }: Params) =>
-  await resend.emails.send({
-    from: getFromEmail(),
-    to: getToEmail(to),
-    subject,
-    text,
-    html,
+const sendMail = async (options: EmailOptions): Promise<void> => {
+  const { to, subject, html } = options;
+  const transporter: Transporter = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: parseInt(SMTP_PORT || "587"),
+    service: SMTP_SERVICE,
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASSWORD,
+    },
   });
+
+  const mailOptions = {
+    from: SMTP_USER,
+    to,
+    subject,
+    html
+  };
+  await transporter.sendMail(mailOptions);
+
+};
+
+export default sendMail;
+ 
