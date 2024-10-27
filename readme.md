@@ -1,6 +1,6 @@
 ### Express v5 - Typescript
 
-This is a simple Express version 5 application with Typescript with Error Handling.
+This is a simple Express version 5 application with Typescript and Error Handling.
 
 ### Getting Started
 

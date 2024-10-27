@@ -4,6 +4,8 @@ import errorHandler from "./middleware/errorHandler";
 import morgan from "morgan";
 import testRoutes from "./app/routes/test.routes";
 import { NOT_FOUND } from "./constants/http";
+import authRoutes from "./app/routes/auth.routes";
+import cookieParser from "cookie-parser";
 
 const app: Application = express();
 
@@ -16,8 +18,7 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: "16kb" }));
 app.use(express.static("public"));
-
-
+app.use(cookieParser());
 app.use(morgan("dev"));
 
 // PING
@@ -27,6 +28,7 @@ app.get("/", async (req: Request, res: Response) => {
 
 // ROUTES
 app.use("/test", testRoutes);
+app.use("/auth",  authRoutes)
 
 app.use(errorHandler);
 

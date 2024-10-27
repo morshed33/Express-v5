@@ -4,7 +4,7 @@ import { HttpStatusCode } from "../constants/http";
 import AppErrorCode from "../constants/appErrorCode";
 
 type AppAssert = (
-  condition: boolean | undefined | null,
+  condition: unknown,
   _httpStatusCode: HttpStatusCode,
   _message: string,
   _appErrorCode?: AppErrorCode

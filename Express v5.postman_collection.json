@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "971c75f4-a945-4090-a4d9-f60d2b40f956",
+		"_postman_id": "f627e7ac-ea8b-4497-9d82-956d7b9d1653",
 		"name": "Express v5",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36198685"
@@ -192,6 +192,184 @@
 			]
 		},
 		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"smofju@gmail.com\",\n    \"password\": \"123123\",\n    \"confirmPassword\": \"123123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/register",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"smofju@gmail.com\",\n    \"password\": \"111111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/login",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/auth/refresh",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/auth/logout",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/auth/email/verify/:code",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"email",
+								"verify",
+								":code"
+							],
+							"variable": [
+								{
+									"key": "code",
+									"value": "671dd7edd399d3946ab58184"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"smofju@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/password/forgot",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"password",
+								"forgot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"verificationCode\": \"671dd743d399d3946ab58171\",\n    \"password\": \"111111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/password/reset",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"password",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Contains all authentication related endpoints."
+		},
+		{
 			"name": "ROOT",
 			"request": {
 				"method": "GET",
@@ -203,76 +381,7 @@
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "ROOT",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base}}",
-							"host": [
-								"{{base}}"
-							]
-						}
-					},
-					"status": "OK",
-					"code": 200,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "Access-Control-Allow-Origin",
-							"value": "*"
-						},
-						{
-							"key": "Age",
-							"value": "0"
-						},
-						{
-							"key": "Cache-Control",
-							"value": "public, max-age=0, must-revalidate"
-						},
-						{
-							"key": "Content-Length",
-							"value": "51"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json; charset=utf-8"
-						},
-						{
-							"key": "Date",
-							"value": "Sat, 26 Oct 2024 18:45:07 GMT"
-						},
-						{
-							"key": "Etag",
-							"value": "W/\"33-EXpqFNa+pUDNTrKw0PxuNtdWnJA\""
-						},
-						{
-							"key": "Server",
-							"value": "Vercel"
-						},
-						{
-							"key": "Strict-Transport-Security",
-							"value": "max-age=63072000; includeSubDomains; preload"
-						},
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "X-Vercel-Cache",
-							"value": "MISS"
-						},
-						{
-							"key": "X-Vercel-Id",
-							"value": "bom1::iad1::9g9r2-1729968307502-e2b13587e1ed"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"success\": true,\n    \"message\": \"SERVER Pinging... 📍\"\n}"
-				}
-			]
+			"response": []
 		}
 	],
 	"event": [
@@ -301,6 +410,12 @@
 		{
 			"key": "base",
 			"value": "https://express-v5.vercel.app",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "base",
+			"value": "http://localhost:8000",
 			"type": "string"
 		}
 	]
