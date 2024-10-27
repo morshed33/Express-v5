@@ -9,12 +9,16 @@ export const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:8000",
-        description: "Local server",
-      },
-      {
         url: "https://express-v5.vercel.app",
         description: "Production server",
+      },
+      {
+        url: "https://express-v5.onrender.com",
+        description: "Production server on Render",
+      },
+      {
+        url: "http://localhost:8000",
+        description: "Local server",
       },
     ],
     tags : [
