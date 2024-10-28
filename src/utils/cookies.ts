@@ -6,7 +6,7 @@ export const REFRESH_PATH = "/auth/refresh"
 const secure = NODE_ENV !== "development"
 
 const defaults: CookieOptions = {
-  sameSite: "strict",
+  sameSite: secure ? "none" : "strict", 
   httpOnly: true,
   secure,
 }
@@ -35,4 +35,4 @@ export const setAuthCookies = ({ res, accessToken, refreshToken }: Params) =>
 export const clearAuthCookies = (res: Response) =>
   res
     .clearCookie("accessToken")
-    .clearCookie("refreshToken", { path: REFRESH_PATH })
+    .clearCookie("refreshToken", { path: REFRESH_PATH }); // Ensure same path for clearing
