@@ -10,7 +10,8 @@
     "skipLibCheck": true // Skip type checking all .d.ts files.
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "index.d.ts"
   ], // Include all TypeScript files in the src directory.
   "exclude": [
     "node_modules",

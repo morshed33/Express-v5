@@ -5,6 +5,7 @@ import { INTERNAL_SERVER_ERROR } from "../../constants/http";
 const testRoutes = Router();
 
 testRoutes.get("/", (req, res) => {
+  console.log(req.userId, "req");
   res.status(200).json({ success: true, message: "TEST ROUTES 📍" });
 });
 

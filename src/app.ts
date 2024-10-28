@@ -9,13 +9,17 @@ import cookieParser from "cookie-parser";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsDoc from "swagger-jsdoc";
 import { swaggerOptions } from "./lib/swaggerDocs";
+import { APP_ORIGIN } from "./constants/env";
+import sessionRoutes from "./app/routes/session.route";
+import userRoutes from "./app/routes/user.route";
+import authenticate from "./middleware/authenticate";
 
 const app: Application = express();
 
 app.use(
   cors({
-    origin: "*",
-    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    origin : APP_ORIGIN,
+    credentials: true,
   })
 );
 app.use(express.urlencoded({ extended: true }));
@@ -28,7 +32,6 @@ app.use(morgan("dev"));
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
-
 // PING
 app.get("/", async (req: Request, res: Response) => {
   res.status(200).json({ success: true, message: "SERVER Pinging... 📍" });
@@ -37,6 +40,9 @@ app.get("/", async (req: Request, res: Response) => {
 // ROUTES
 app.use("/test", testRoutes);
 app.use("/auth",  authRoutes)
+
+app.use("/user", authenticate, userRoutes);
+app.use("/sessions", authenticate, sessionRoutes);
 
 app.use(errorHandler);
 

@@ -1,10 +1,11 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 declare global {
   namespace Express {
     interface Request {
-      userId?: mongoose.Schema.Types.ObjectId
-      sessionId?: mongoose.Schema.Types.ObjectId
+      userId: mongoose.Types.ObjectId;
+      sessionId: mongoose.Types.ObjectId;
     }
   }
 }
+export {};
