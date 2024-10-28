@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {  z } from "zod";
 import SessionModel from "../models/session.model";
 import appAssert from "../../utils/appAssert";
@@ -5,7 +6,7 @@ import { NOT_FOUND, OK } from "../../constants/http";
 import { Request, Response } from "express";
 
 
-export const getSessionsHandler = (async (req: Request, res: Response) => {
+export const getSessionsHandler = (async (req: Request, res: Response) : Promise<any> => {
   const sessions = await SessionModel.find(
     {
       userId: req.userId,
@@ -32,7 +33,7 @@ export const getSessionsHandler = (async (req: Request, res: Response) => {
   );
 });
 
-export const deleteSessionHandler = (async (req: Request, res: Response) => {
+export const deleteSessionHandler = (async (req: Request, res: Response)  : Promise<any> => {
   const sessionId = z.string().parse(req.params.id);
   const deleted = await SessionModel.findOneAndDelete({
     _id: sessionId,
